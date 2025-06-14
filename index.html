@@ -1,16 +1,24 @@
-<!-- Unit 13 Project
+<!-- Unit 12 + 13 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Two Different jQuery Animation Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[ X ] Two Interactive Drop-down Inputs 
+[ X ] Two Different jQuery Animation Methods 
+[ X ] Add Five CSS Declarations
+[ X ] Include Three Images
+[ X ] $() Select by Element, ID AND Class 
+[ X ] Use Three Different jQuery Methods 
 
-Select ONE Additional Feature to Add  
-[ no ] Feature 1 - Google Font
+
+Select TWO Additional Features to Add  
+[ yes ] Feature 1 - Google Font
 [ no ] Feature 2 - Upload a Font
 [ no ] Feature 3 - .mouseover() Method
 [ no ] Feature 4 - :hover Feature 
 [ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ yes ] Feature 1 - Use .addClass() method
+[ no ] Feature 2 - Use a variable in javaScript 
+[ no ] Feature 3 - Use .mouseover() method
+[ no ] Feature 4 - Use .show() method
+[ no ] Feature 5 - Use .append() method
 -->
 
 <!DOCTYPE html>
@@ -18,42 +26,86 @@ Select ONE Additional Feature to Add
   <head>
     <meta charset="utf-8" />
     <title>Unit 13 Project</title>
+
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <center>
+      <h1>BLAH BLAH BLAH</h1>
+      <h2>Zhao, Emily (wait...that's not right?)</h2>
+    </center>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
-        🎥 What is my favorite movie?
+        🎥 Two of my favorite movies:
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">Scott Pilgrim vs. The World</option>
+          <option value="movie2">Lady Bird</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Why?</button>
+      <img
+        id="scott"
+        src="https://m.media-amazon.com/images/M/MV5BNTA5ZWMwNmYtNWI1ZS00NDRlLTkxNzktMzdhZDU2ZDhjNDJmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        width="209"
+      />
+      <img
+        id="lady"
+        src="https://m.media-amazon.com/images/M/MV5BNjk5MzcyOWQtNzE1Mi00NzdmLTlkM2QtOTdjZThhMDc2Y2NjXkEyXkFqcGc@._V1_.jpg"
+        width="200"
+      />
     </form>
     <div id="movie-result"></div>
     <hr />
     <!-- Book Question -->
     <form id="book-form">
       <label>
-        📖 What is my favorite book?
+        📖 Two of my favorite books:
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">Turtles All the Way Down</option>
+          <option value="book2">
+            Aristotle and Dante Discover the Secrets of the Universe
+          </option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Why?</button>
+
+      <img
+        id="turtle"
+        src="https://m.media-amazon.com/images/I/81WjXknkN4L.jpg"
+      />
+      <img
+        id="ari"
+        src="https://prodimage.images-bn.com/pimages/9781442408937_p0_v10_s1200x630.jpg"
+      />
     </form>
     <div id="book-result"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+      
+      $("h1").text("Some of My Favorite Things!");
+      $("h2").addClass("name");
+      $(".name").html("<em>Emily Zhao</em>");
+
+      //Scott image
+      $("#scott").hide();
+
+      //Lady image
+      $("#lady").hide();
+
+      //Turtle image
+      $("#turtle").hide();
+
+      //Ari image
+      $("#ari").hide();
+
       //Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
@@ -62,9 +114,15 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+          $("#movie-result").text(
+            "Because it has really fun and wacky editing; plus, I love the comedy."
+          );
+          $("#scott").slideDown(2000);
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#movie-result").text(
+            "Because it shows a really nuanced relationship between a mother and daughter."
+          );
+          $("#lady").slideDown(2000);
         }
       });
 
@@ -76,9 +134,25 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+          $("#book-result").text(
+            "Because it was one of the first books I ever read that I really related to (also I love John Green)."
+          );
+          $("#turtle").animate(
+            {
+              width: "200px",
+            },
+            2000
+          );
         } else {
-          $("#book-result").text("Try Again!");
+          $("#book-result").text(
+            "Because one of my best friends recommended this book to me and it brought us closer together. Also, it's just a good book anyway. "
+          );
+          $("#ari").animate(
+            {
+              width: "200px",
+            },
+            2000
+          );
         }
       });
     </script>
