@@ -1,6 +1,22 @@
+body {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background: lightblue;
+  background-image: url("https://rockymountaindecals.com/cdn/shop/products/blue-gingham-wallpaper-peel-stick-849723.png?v=1666799064");
+}
+
+h1 {
+  color: darkblue;
+}
+
+.name {
+  color: blue;
+}
+
 #movie-result {
   background: rgb(244, 98, 181);
-  border: 5px solid black;
+  border: 5px solid pink;
   font-size: 24px;
   height: 160px;
   margin-top: 10px;
@@ -9,7 +25,7 @@
 
 #book-result {
   background: rgb(196, 159, 255);
-  border: 5px solid black;
+  border: 5px solid lavender;
   font-size: 24px;
   height: 160px;
   margin-top: 10px;
